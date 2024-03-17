@@ -1,20 +1,5 @@
-const handlePasswordVisibility = () => {
-  const showPasswordCTA = document.getElementById("showPassword");
-  const passwordCTA = document.getElementById("password");
-  if (!showPasswordCTA || !passwordCTA) throw new Error();
-
-  showPasswordCTA.addEventListener("change", (event) => {
-    if (event.target.checked) {
-      passwordCTA.type = "text";
-      return;
-    }
-    passwordCTA.type = "password";
-  });
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-  handlePasswordVisibility();
-});
+import handlePasswordVisibility from "./passVisibility";
+handlePasswordVisibility();
 
 // const dataLogIn = () => {
 //   const user = "admin";
