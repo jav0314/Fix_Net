@@ -1,18 +1,20 @@
-import handlePasswordVisibility from "./passVisibility";
-handlePasswordVisibility();
+import { formIds } from "./const.js";
+import FormSumbit from "./enter.js";
 
-// const dataLogIn = () => {
-//   const user = "admin";
-//   const pass = "1234";
-//   const nameUser = document.getElementById("username").value;
-//   const passUser = document.getElementById("password").value;
-//   if (nameUser === user || passUser === pass) {
-//     alert("Usuario o contraseña incorrectos");
-//   } else {
-//     alert("Bienvenido");
-//   }
-// };
+const handlePasswordVisibility = () => {
+  const showPasswordCTA = document.getElementById(formIds.showPassword);
+  const passwordCTA = document.getElementById(formIds.password);
+  if (!showPasswordCTA || !passwordCTA) throw new Error();
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   dataLogIn();
-// });
+  showPasswordCTA.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      passwordCTA.type = "text";
+      return;
+    }
+    passwordCTA.type = "password";
+  });
+};
+document.addEventListener("DOMContentLoaded", () => {
+  FormSumbit.init();
+  handlePasswordVisibility();
+});
