@@ -1,5 +1,6 @@
 import { formIds } from "./const.js";
 import FormSumbit from "./enter.js";
+import EmptySubmit from "./empty.js";
 
 const handlePasswordVisibility = () => {
   const showPasswordCTA = document.getElementById(formIds.showPassword);
@@ -17,4 +18,5 @@ const handlePasswordVisibility = () => {
 document.addEventListener("DOMContentLoaded", () => {
   FormSumbit.init();
   handlePasswordVisibility();
+  EmptySubmit.init();
 });
